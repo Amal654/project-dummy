@@ -21,7 +21,6 @@ function LeverArmCalculator() {
   const [aPhi, setAPhi] = useState("");
   const [barsRequired, setBarsRequired] = useState("");
   const [aSC, setASC] = useState("");
-  const [areaOfOneBar, setAreaOfOneBar] = useState("113");
   const [totalNoOfBars, setTotalNoOfBars] = useState("");
 
   // beamDepth = beamDepth - effectiveCover;
@@ -107,7 +106,7 @@ function LeverArmCalculator() {
   };
 
   const calculateTotalNoOfBars = () => {
-    const totalNoOfBarsValue = parseFloat(aSC) / areaOfOneBar;
+    const totalNoOfBarsValue = parseFloat(aSC) / 113;
     const roundedTotalBars = Math.ceil(totalNoOfBarsValue);
     setTotalNoOfBars(roundedTotalBars);
   };
@@ -139,6 +138,17 @@ function LeverArmCalculator() {
           id="beamDepth"
           value={beamDepth}
           onChange={(e) => setBeamDepth(e.target.value)}
+          onKeyPress={(e) => handleKeyPress(e, calculateM)}
+        />
+        <span>mm</span>
+      </div>
+      <div>
+        <label htmlFor="effective"> Effective cover:</label>
+        <input
+          type="number"
+          id="effective"
+          value={effectiveCover}
+          onChange={(e) => setEffectiveCover(e.target.value)}
           onKeyPress={(e) => handleKeyPress(e, calculateM)}
         />
         <span>mm</span>
