@@ -102,7 +102,7 @@ function LeverArmCalculator() {
         parseFloat(aSTTwo) *
         (parseFloat(beamDepth) - parseFloat(n))) /
       ((1.5 * parseFloat(m) - 1) *
-        (parseFloat(beamDepth) - parseFloat(effectiveCover)));
+        (parseFloat(n) - parseFloat(effectiveCover)));
     setASC(aSCValue.toFixed(1));
   };
 
